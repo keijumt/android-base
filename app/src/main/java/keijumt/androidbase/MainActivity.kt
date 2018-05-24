@@ -1,7 +1,6 @@
 package keijumt.androidbase
 
 import android.os.Bundle
-import keijumt.androidbase.ui.main.BaseActivity
 import keijumt.androidbase.ui.main.MainFragment
 
 class MainActivity : BaseActivity() {
