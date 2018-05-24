@@ -1,19 +1,15 @@
 package keijumt.androidbase
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import keijumt.androidbase.ui.main.BaseActivity
 import keijumt.androidbase.ui.main.MainFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
-        }
+        addFragment(MainFragment.newInstance(), R.id.linear_container_main)
     }
 
 }
