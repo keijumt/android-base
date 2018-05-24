@@ -1,12 +1,23 @@
 package keijumt.androidbase
 
+import android.arch.lifecycle.ViewModelProvider
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import keijumt.androidbase.di.Injectable
+import javax.inject.Inject
 
 /**
  * Activityの基底クラス
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Fragment>
 
     /**
      * Fragmentを指定のViewに貼り付ける。
@@ -24,5 +35,9 @@ abstract class BaseActivity : AppCompatActivity() {
                 .beginTransaction()
                 .add(containerViewId, fragment)
                 .commit()
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return androidInjector
     }
 }
