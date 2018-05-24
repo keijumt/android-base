@@ -1,7 +1,6 @@
 package keijumt.androidbase.ui.main
 
-import android.arch.lifecycle.ViewModel
+import keijumt.androidbase.BaseViewModel
 
-class MainViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class MainViewModel : BaseViewModel() {
 }
