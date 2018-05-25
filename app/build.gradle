@@ -47,4 +47,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
     testAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
 }
